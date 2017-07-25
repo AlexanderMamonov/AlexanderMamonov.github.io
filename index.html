@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+      <script>
+
+var fontSize = 0.01;
+document.onclick = function(event) {
+   console.log(event);
+   var width = event.toElement.clientWidth;
+   var x = event.clientX;
+   if ( x < width / 2.0 ) {
+      fontSize = fontSize * 0.9;
+   }
+   else {
+      fontSize = fontSize * 1.1;
+   }
+
+   fontSize = fontSize.toFixed(3);
+   setFontSize(fontSize);
+   document.getElementById("size").textContent = fontSize;
+}
+window.onload= function() {
+
+   var chars = "QWERTYUIOPASDFGHJKLZXCVBNM";
+   document.getElementById("display").textContent = chars.charAt(Math.floor(Math.random() * chars.length));
+   setFontSize(fontSize);
+}
+
+function setFontSize(size) {
+
+   document.getElementById("display").style.fontSize = size + "cm";
+} 
+
+      </script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <body
+
+                            style="
+                            position:fixed;
+                            top:0;
+                            bottom:0;
+                            left:0;
+                            right:0;"
+                            >
+                            <p
+                            style="
+                            position: fixed;
+                            top: 50%;
+                            left: 50%;
+                            margin: auto;
+                            /* bring your own prefixes */
+                            transform: translate(-50%, -50%);  
+                            font-size: 0.01cm;
+                            user-select: none;
+                            "
+                            id="display"
+                            >X</p>
+
+                            <p
+                            id="size"
+                            style="
+                            font-size: 1em;
+                            user-select: none;
+                            "
+                            >size</p>
+   </body>
+</html>
+
